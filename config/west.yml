@@ -12,10 +12,10 @@ manifest:
     - name: petejohanson
       url-base: https://github.com/petejohanson
   projects:
-    - name: zmk
-      remote: zmkfirmware
-      revision: main
-      import: app/west.yml
+    # - name: zmk
+    #   remote: zmkfirmware
+    #   revision: main
+    #   import: app/west.yml
     # nice_oled - nice_epaper
     - name: zmk-nice-oled
       remote: mctechnology17
