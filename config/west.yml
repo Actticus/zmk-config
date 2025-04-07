@@ -8,15 +8,14 @@ manifest:
     # nice_oled - nice_epaper - dongle_display!view - oled Adapter
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
+    # rgb
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    # dongle_display
-    - name: zmk-dongle-display
-      remote: englmaxi
-      revision: main
     # nice_oled - nice_epaper
     - name: zmk-nice-oled
       remote: mctechnology17
@@ -29,5 +28,10 @@ manifest:
     - name: zmk-oled-adapter
       remote: mctechnology17
       revision: main
+    # rgb adapter
+    - name: zmk
+      remote: petejohanson
+      revision: power/domains-and-device-runtime
+      import: app/west.yml
   self:
     path: config
