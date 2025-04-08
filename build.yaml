@@ -57,7 +57,7 @@ include:
   # nice!oled lily58
   - board: nice_nano_v2
     shield: lily58_left nice_oled
-    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"lily58_Oled\"  -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_IDLE_TIMEOUT=60000
+    cmake-args: -DEXTRA_OVERLAY_FILE=\"../../config/nice_nano_v2.overlay\" -DCONFIG_ZMK_KEYBOARD_NAME=\"lily58_Oled\"  -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_IDLE_TIMEOUT=60000
     artifact-name: nice_lily58_left_oled
     snippet: studio-rpc-usb-uart
   - board: nice_nano_v2
