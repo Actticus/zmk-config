@@ -34,11 +34,11 @@
 
         lower_layer {
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1  | BT2   |  BT3 |  BT4 |  BT5 |                   | EP_TG|  EP_ON| EP_OFF|      |       |       |
-// |  F1   |  F2  |  F3   |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  | 
-// |   `   |  !   |  @    |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-// | EP_TG |EP_ON |EP_OFF |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-//                        |      |      |      |        |  |       |      |       |       |
+// | BTCLR | BT1  | BT2   |  BT3 |  BT4 |  BT5 |                   | EP_TG | EP_ON | EP_OFF |      |       |       |
+// |  F1   |  F2  |  F3   |  F4  |  F5  |  F6  |                   |  F7   |  F8   |   F9   |  F10 |  F11  |  F12  | 
+// |   `   |  !   |  @    |  #   |  $   |  %   |                   |  ^    |  &    |   *    |  (   |   )   |   ~   |
+// | EP_TG |EP_ON |EP_OFF |      |      |      |        |  |       |       |  _    |   +    |  {   |   }   |  "|"  |
+//                        |      |      |      |        |  |       |       |       |        |
             display-name = "Low";
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0         &bt BT_SEL 1          &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                                 &ext_power EP_TOG  &ext_power EP_ON &ext_power EP_OFF   &trans    &trans    &trans
