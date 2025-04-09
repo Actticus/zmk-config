@@ -9,7 +9,7 @@
 
 &spi3 {
     led_strip: ws2812@0 {
-        chain-length = <45>; /* arbitrary; change at will */
+        chain-length = <35>; /* arbitrary; change at will */
     };
 };
 // END OF PART WITH LEDS
