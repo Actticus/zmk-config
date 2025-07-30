@@ -96,7 +96,7 @@
 &kp TAB      &kp KP_N7        &kp KP_N8       &kp KP_N9         &kp KP_PLUS       &trans                               &trans    &kp DEL   &kp UP    &trans     &trans    &trans
 &kp LCTRL    &mt LGUI KP_N4   &mt LALT KP_N5  &mt LSHIFT KP_N6  &mt LCTRL EQUAL   &trans                               &trans    &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &trans
 &kp LSHFT    &kp KP_N1        &kp KP_N2       &kp KP_N3         &kp KP_DOT        &trans    &trans         &trans      &trans    &trans    &trans    &trans     &trans    &trans
-                                              &trans            &trans            &mo3    &trans         &trans      &trans    &trans    &trans
+                                              &trans            &trans            &mo 3    &trans         &trans      &trans    &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
