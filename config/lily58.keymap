@@ -69,14 +69,14 @@
 // |  ESC  |   1   |   2   |    3     |    4    |  5  |           !          |  6    |    7    |     8    |   9   |   0   |       |
 // |   F1  |  F2   |  F3   |    F4    |   F5    | F6  |           !          |  F7   |    F8   |    F9    |  F10  |  F11  |  F12  |
 // | LCTRL | !/WIN | @/ALT | #/LSHIFT | $/LCTRL |  %  |           !          |  ^    | &/LCTRL | */LSHIFT | (/ALT | )/WIN |   ~   |
-// | SHIFT | HOME  | PG_DN |  PG_UP   |   INS   |     |        |  !  |       |  _    |    =    |     +    |   {   |    }  |  "|"  |
+// | SHIFT | HOME  | PG_UP |   PG_DN  |   INS   |     |        |  !  |       |  _    |    =    |     +    |   {   |    }  |  "|"  |
 //                         |          |         |     |        |  !  |       |       |         |          |
             display-name = "Low";
             bindings = <
 &kp ESC       &kp N1         &kp N2        &kp N3            &kp N4            &kp N5                                  &kp N6     &kp N7          &kp N8                  &kp N9         &kp N0        &trans
 &kp F1        &kp F2         &kp F3        &kp F4            &kp F5            &kp F6                                  &kp F7     &kp F8          &kp F9                  &kp F10        &kp F11       &kp F12
 &kp LCTRL     &mt LGUI EXCL  &mt LALT AT   &mt LSHIFT HASH   &mt LCTRL DOLLAR  &kp PRCNT                               &kp CARET  &mt LCTRL AMPS  &mt LSHIFT KP_MULTIPLY  &mt LALT LPAR  &mt GUI RPAR  &kp TILDE
-&kp LSHFT     &kp HOME       &kp PG_DN     &kp PG_UP         &kp INS           &trans      &trans          &trans      &kp MINUS  &kp EQUAL       &kp KP_PLUS             &kp LBRC       &kp RBRC      &kp PIPE
+&kp LSHFT     &kp HOME       &kp PG_UP     &kp PG_DN         &kp INS           &trans      &trans          &trans      &kp MINUS  &kp EQUAL       &kp KP_PLUS             &kp LBRC       &kp RBRC      &kp PIPE
                                            &trans            &trans            &trans      &trans          &trans      &mo 3      &trans          &trans
             >;
 
