@@ -4,42 +4,23 @@
  * SPDX-License-Identifier: MIT
  */
 
-// PART WITH LEDS
-#include <dt-bindings/led/led.h>
-
-&spi3 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
-
-    pinctrl-0 = <&spi3_default>;
-    pinctrl-1 = <&spi3_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    led_strip: ws2812@0 {
-        compatible = "worldsemi,ws2812-spi";
-
-        /* SPI */
-        reg = <0>; /* ignored, but necessary for SPI bindings */
-        spi-max-frequency = <4000000>;
-
-        /* WS2812 */
-        chain-length = <35>; /* arbitrary; change at will */
-        spi-one-frame = <0x70>;
-        spi-zero-frame = <0x40>;
-
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-    };
-};
-// END OF PART WITH LEDS
-
-
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
 
+// Layer indices follow the order in which layer nodes appear below:
+// reordering the includes requires updating these numbers.
+#define BASE       0
+#define LOWER      1
+#define RAISE      2
+#define GAME       3
+#define GAME_LOWER 4
+#define GAME_RAISE 5
+#define EXTERNAL   6
+
+#include "home_row_mods.dtsi"
 #include "default_layers.dtsi"
 #include "gaming_layers.dtsi"
 #include "external_layers.dtsi"
@@ -49,14 +30,14 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        ext_from_1_2 {
-            if-layers = <1 2>;
-            then-layer = <6>;
+        ext_from_default {
+            if-layers = <LOWER RAISE>;
+            then-layer = <EXTERNAL>;
         };
 
-        ext_from_4_5 {
-            if-layers = <4 5>;
-            then-layer = <6>;
+        ext_from_gaming {
+            if-layers = <GAME_LOWER GAME_RAISE>;
+            then-layer = <EXTERNAL>;
         };
     };
 
