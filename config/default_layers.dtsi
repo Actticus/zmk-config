@@ -29,16 +29,16 @@
 
         lower_layer {
             display-name = "Low";
-            // | ESC       | PSCRN          | MUTE         | VOL-             | VOL+              |           |                          |           | PREV            | PLAY                    | NEXT           |                | \         |
+            // | ESC       | PSCRN          | MUTE         | VOL-             | VOL+              | BRI-      |                          | BRI+      | PREV            | PLAY                    | NEXT           |                | \         |
             // | F1        | F2             | F3           | F4               | F5                | F6        |                          | F7        | F8              | F9                      | F10            | F11            | F12       |
             // | CTRL      | !/WIN          | @/ALT        | #/SHIFT          | $/CTRL            | %         |                          | ^         | &/CTRL          | */SHIFT                 | (/ALT          | )/WIN          | ~         |
             // | SHIFT     | HOME           | PG_UP        | PG_DN            | INS               |           |           |   |          | _         | =               | +                       | {              | }              | |         |
             //                                             |                  |                   |           |           |   |          |           |                 |                         |
             bindings = <
-                 &kp ESC     &kp PSCRN        &kp C_MUTE     &kp C_VOL_DN       &kp C_VOL_UP        &trans                                 &trans      &kp C_PREV        &kp C_PP                  &kp C_NEXT       &trans           &kp BSLH
-                 &kp F1      &kp F2           &kp F3         &kp F4             &kp F5              &kp F6                                 &kp F7      &kp F8            &kp F9                    &kp F10          &kp F11          &kp F12
-                 &kp LCTRL   &hml LGUI EXCL   &hml LALT AT   &hml LSHIFT HASH   &hml LCTRL DOLLAR   &kp PRCNT                              &kp CARET   &hmr LCTRL AMPS   &hmr LSHIFT KP_MULTIPLY   &hmr LALT LPAR   &hmr LGUI RPAR   &kp TILDE
-                 &kp LSHFT   &kp HOME         &kp PG_UP      &kp PG_DN          &kp INS             &trans      &trans          &trans     &kp UNDER   &kp EQUAL         &kp KP_PLUS               &kp LBRC         &kp RBRC         &kp PIPE
+                 &kp ESC     &kp PSCRN        &kp C_MUTE     &kp C_VOL_DN       &kp C_VOL_UP        &kp C_BRI_DN                           &kp C_BRI_UP &kp C_PREV        &kp C_PP                  &kp C_NEXT       &trans           &kp BSLH
+                 &kp F1      &kp F2           &kp F3         &kp F4             &kp F5              &kp F6                                 &kp F7       &kp F8            &kp F9                    &kp F10          &kp F11          &kp F12
+                 &kp LCTRL   &hml LGUI EXCL   &hml LALT AT   &hml LSHIFT HASH   &hml LCTRL DOLLAR   &kp PRCNT                              &kp CARET    &hmr LCTRL AMPS   &hmr LSHIFT KP_MULTIPLY   &hmr LALT LPAR   &hmr LGUI RPAR   &kp TILDE
+                 &kp LSHFT   &kp HOME         &kp PG_UP      &kp PG_DN          &kp INS             &trans      &trans          &trans     &kp UNDER    &kp EQUAL         &kp KP_PLUS               &kp LBRC         &kp RBRC         &kp PIPE
                                                              &trans             &trans              &trans      &trans          &trans     &trans      &trans            &trans
             >;
 
