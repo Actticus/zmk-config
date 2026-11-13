@@ -1,0 +1,5 @@
+description: Mood RGB lighting control
+
+compatible: "zmk,behavior-mood-rgb"
+
+include: two_param.yaml

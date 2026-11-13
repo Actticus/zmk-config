@@ -1,6 +1,6 @@
 # Local ZMK checkout / west workspace
-zmk/
-build/
+/zmk/
+/build/
 .west/
 
 # Editors / OS

@@ -3,11 +3,19 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/rgb.h>
-
-#define RGB_WHITE RGB_COLOR_HSB(0,0,100)
+#include <dt-bindings/zmk/mood_rgb.h>
 
 / {
+
+    behaviors {
+        // Lighting control for both halves; the node name travels over the
+        // split link, keep it at most 8 characters.
+        mood: mood {
+            compatible = "zmk,behavior-mood-rgb";
+            #binding-cells = <2>;
+            display-name = "Mood";
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -15,16 +23,17 @@
         external_layer {
             display-name = "Ext";
             // | BT_CLR          | BT1             | BT2               | BT3          | BT4          | BT5          |                     | EP_TOG            | EP_ON            | EP_OFF            | OUT_TOG      | USB          | BLE          |
-            // | RGB_TOG         | RGB_EFF         | RGB_WHT           |              |              |              |                     |                   |                  |                   |              |              |              |
+            // | MOOD_TOG        | MOOD_PREV       | MOOD_NEXT         | BRI-         | BRI+         |              |                     | SPEED-            | SPEED+           | HUE-              | HUE+         |              |              |
             // | TO_BASE         | TO_GAME         |                   |              |              |              |                     |                   |                  |                   |              |              |              |
-            // |                 |                 |                   |              |              |              |        |   |        |                   |                  |                   |              |              |              |
+            // |                 | OCEAN           | SUNSET            | AURORA       | FIRE         | STARS        |        |   |        | FOCUS             | NEON             | CUSTOM            |              |              |              |
             //                                                         |              |              |              |        |   |        |                   |                  |                   |
+            // HUE-/HUE+ change the color of the CUSTOM mood. Any lighting key turns the lighting on.
             bindings = <
-                 &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1        &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                         &ext_power EP_TOG   &ext_power EP_ON   &ext_power EP_OFF   &out OUT_TOG   &out OUT_USB   &out OUT_BLE
-                 &rgb_ug RGB_TOG   &rgb_ug RGB_EFF   &rgb_ug RGB_WHITE   &trans         &trans         &trans                               &trans              &trans             &trans              &trans         &trans         &trans
-                 &to BASE          &to GAME          &trans              &trans         &trans         &trans                               &trans              &trans             &trans              &trans         &trans         &trans
-                 &trans            &trans            &trans              &trans         &trans         &trans         &trans       &trans   &trans              &trans             &trans              &trans         &trans         &trans
-                                                                         &trans         &trans         &trans         &trans       &trans   &trans              &trans             &trans
+                 &bt BT_CLR        &bt BT_SEL 0          &bt BT_SEL 1            &bt BT_SEL 2            &bt BT_SEL 3          &bt BT_SEL 4                                         &ext_power EP_TOG       &ext_power EP_ON      &ext_power EP_OFF        &out OUT_TOG      &out OUT_USB   &out OUT_BLE
+                 &mood MOOD_TOG    &mood MOOD_PREV       &mood MOOD_NEXT         &mood MOOD_BRI_DN       &mood MOOD_BRI_UP     &trans                                               &mood MOOD_SPD_DN       &mood MOOD_SPD_UP     &mood MOOD_HUE_DN        &mood MOOD_HUE_UP &trans         &trans
+                 &to BASE          &to GAME              &trans                  &trans                  &trans                &trans                                               &trans                  &trans                &trans                   &trans            &trans         &trans
+                 &trans            &mood MOOD_SET MOOD_OCEAN &mood MOOD_SET MOOD_SUNSET &mood MOOD_SET MOOD_AURORA &mood MOOD_SET MOOD_FIRE &mood MOOD_SET MOOD_STARS &trans   &trans   &mood MOOD_SET MOOD_FOCUS &mood MOOD_SET MOOD_NEON &mood MOOD_SET MOOD_CUSTOM &trans  &trans         &trans
+                                                                                 &trans                  &trans                &trans                 &trans       &trans   &trans                  &trans                &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;

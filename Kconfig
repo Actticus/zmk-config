@@ -1,0 +1,66 @@
+menuconfig MOOD_RGB
+    bool "Mood RGB lighting (replaces ZMK_RGB_UNDERGLOW)"
+    depends on !ZMK_RGB_UNDERGLOW
+    select LED_STRIP
+    select SPI
+    select ZMK_LOW_PRIORITY_WORK_QUEUE
+
+if MOOD_RGB
+
+config MOOD_RGB_ON_START
+    bool "Lighting on at first boot (later the last state is restored from flash)"
+
+config MOOD_RGB_MOOD_START
+    int "Mood at first boot (see dt-bindings/zmk/mood_rgb.h)"
+    range 0 7
+    default 0
+
+config MOOD_RGB_BRT_START
+    int "Brightness at first boot, percent"
+    range 0 100
+    default 40
+
+config MOOD_RGB_BRT_MIN
+    int "Minimum brightness, percent"
+    range 0 100
+    default 5
+
+config MOOD_RGB_BRT_MAX
+    int "Maximum brightness, percent (limits current draw)"
+    range 0 100
+    default 100
+
+config MOOD_RGB_BRT_STEP
+    int "Brightness step, percent"
+    range 1 50
+    default 5
+
+config MOOD_RGB_SPD_START
+    int "Animation speed at first boot (0 slowest .. 4 fastest)"
+    range 0 4
+    default 2
+
+config MOOD_RGB_HUE_START
+    int "Hue of the custom mood at first boot (0..255)"
+    range 0 255
+    default 160
+
+config MOOD_RGB_HUE_STEP
+    int "Hue step of the custom mood (0..255 scale)"
+    range 1 128
+    default 8
+
+config MOOD_RGB_FRAME_MS
+    int "Frame period, ms"
+    range 10 200
+    default 33
+
+config MOOD_RGB_AUTO_OFF_IDLE
+    bool "Fade out while the keyboard is idle"
+    default y
+
+config MOOD_RGB_SYNC_INTERVAL_MS
+    int "How often the central re-sends state and animation clock to the peripheral, ms"
+    default 30000
+
+endif
